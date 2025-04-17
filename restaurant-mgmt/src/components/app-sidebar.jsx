@@ -15,15 +15,15 @@ export function AppSidebar({ variant = "default", activeSection = "dashboard", o
   return (
     <aside 
       className={`
-        ${variant === "inset" ? "border-r border-gray-200" : ""} 
-        h-full w-64 flex-shrink-0 bg-white z-20
+        ${variant === "inset" ? "border-r border-gray-200 dark:border-gray-700" : ""} 
+        h-full w-64 flex-shrink-0 bg-white dark:bg-gray-800 z-20
         fixed md:relative inset-y-0 left-0 
         transform ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"} 
         transition-transform duration-200 ease-in-out
       `}
     >
-      <div className="flex h-16 items-center border-b border-gray-200 px-4">
-        <h2 className="text-lg font-semibold text-gray-800">Restaurant Manager</h2>
+      <div className="flex h-16 items-center border-b border-gray-200 dark:border-gray-700 px-4">
+        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Restaurant Manager</h2>
       </div>
       <nav className="flex flex-col gap-1 p-2">
         <NavItem 
@@ -67,8 +67,10 @@ function NavItem({ label, active = false, onClick, icon }) {
       onClick={onClick}
       className={`
         flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm 
-        transition-colors hover:bg-gray-100
-        ${active ? "bg-primary/10 text-primary font-medium" : "text-gray-600"}
+        transition-colors hover:bg-gray-100 dark:hover:bg-gray-700
+        ${active 
+          ? "bg-primary/10 text-primary font-medium dark:bg-primary/20" 
+          : "text-gray-600 dark:text-gray-300"}
       `}
     >
       <span className="flex h-5 w-5 items-center">{icon}</span>
