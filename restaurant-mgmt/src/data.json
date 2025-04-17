@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Chicken Sandwich",
+    "category": "Main Course",
+    "price": 8.99,
+    "sales": 128
+  },
+  {
+    "id": 2,
+    "name": "Caesar Salad",
+    "category": "Appetizer",
+    "price": 6.99,
+    "sales": 85
+  },
+  {
+    "id": 3,
+    "name": "Tomato Soup",
+    "category": "Appetizer",
+    "price": 4.99,
+    "sales": 62
+  },
+  {
+    "id": 4,
+    "name": "Grilled Salmon",
+    "category": "Main Course",
+    "price": 16.99,
+    "sales": 94
+  },
+  {
+    "id": 5,
+    "name": "Chocolate Cake",
+    "category": "Dessert",
+    "price": 5.99,
+    "sales": 105
+  }
+] 
