@@ -1,4 +1,4 @@
-import { useSidebar } from "@/components/ui/sidebar"
+import { useSidebar } from "../ui/sidebar"
 
 export function AppSidebar({ variant = "default", activeSection = "home", onNavigate }) {
   const { isOpen, setIsOpen } = useSidebar()

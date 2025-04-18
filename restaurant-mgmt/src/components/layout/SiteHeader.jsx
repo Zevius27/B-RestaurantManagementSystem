@@ -1,4 +1,4 @@
-import { useSidebar } from "@/components/ui/sidebar"
+import { useSidebar } from "../ui/sidebar"
 
 export function SiteHeader({ title = "Dashboard" }) {
   const { isOpen, setIsOpen } = useSidebar()
