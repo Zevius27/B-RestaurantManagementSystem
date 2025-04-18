@@ -22,7 +22,15 @@ export default defineConfig({
     allowedHosts: ['b-restaurantmanagementsystem.onrender.com']
   },
   plugins: [
-    react(),
+    react({
+      jsxRuntime: 'automatic',
+      jsxImportSource: 'react',
+      babel: {
+        plugins: [
+          ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }]
+        ]
+      }
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
@@ -66,6 +74,19 @@ export default defineConfig({
   build: {
     sourcemap: true,
     outDir: 'dist',
-    assetsDir: 'assets'
+    assetsDir: 'assets',
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          vendor: ['virtual:pwa-register']
+        }
+      }
+    }
+  },
+  esbuild: {
+    jsxFactory: 'React.createElement',
+    jsxFragment: 'React.Fragment'
   }
 })
