@@ -58,4 +58,7 @@ function TimeRangeButton({ label, value, active, onClick }) {
       {label}
     </button>
   )
-} 
+}
+
+// Add default export
+export default ChartAreaInteractive; 

@@ -45,4 +45,6 @@ export function SiteHeader({ title = "Dashboard" }) {
       </div>
     </header>
   )
-} 
+}
+
+export default SiteHeader; 

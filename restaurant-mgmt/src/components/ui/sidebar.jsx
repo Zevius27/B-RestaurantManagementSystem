@@ -1,13 +1,10 @@
 import { createContext, useContext, useState } from "react"
 
-const SidebarContext = createContext({
-  isOpen: false,
-  setIsOpen: () => {},
-})
+const SidebarContext = createContext(undefined)
 
-export function SidebarProvider({ children }) {
-  const [isOpen, setIsOpen] = useState(false)
-  
+export function SidebarProvider({ children, defaultOpen = false }) {
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+
   return (
     <SidebarContext.Provider value={{ isOpen, setIsOpen }}>
       <div className="flex h-full w-full overflow-hidden">
@@ -19,9 +16,11 @@ export function SidebarProvider({ children }) {
 
 export function useSidebar() {
   const context = useContext(SidebarContext)
-  if (!context) {
+  
+  if (context === undefined) {
     throw new Error("useSidebar must be used within a SidebarProvider")
   }
+  
   return context
 }
 

@@ -57,4 +57,6 @@ function TableIcon() {
       <path d="M3 7h18M3 11h18M3 15h18M3 19h18"></path>
     </svg>
   )
-} 
+}
+
+export default SectionCards; 

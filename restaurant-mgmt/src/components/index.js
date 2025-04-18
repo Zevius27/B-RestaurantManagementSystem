@@ -7,14 +7,20 @@ export { default as DataTable } from './data/DataTable';
 export { default as ChartAreaInteractive } from './data/ChartAreaInteractive';
 export { default as SectionCards } from './data/SectionCards';
 
-// Navigation Components
-export * from './navigation/NavLink';
+// UI Components
+export * from './ui';
 
 // Form Components
-export * from './forms/FormField';
+export * from './forms';
 
 // Feedback Components
-export * from './feedback/Alert';
+export * from './feedback';
 
-// UI Components
-export * from './ui'; 
+// Navigation Components
+export * from './navigation';
+
+// Modal Components
+export * from './modals';
+
+// Feature Components
+export * from './features'; 

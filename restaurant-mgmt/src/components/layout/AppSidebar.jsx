@@ -160,4 +160,7 @@ function AboutIcon() {
       <path d="M12 8h.01"></path>
     </svg>
   )
-} 
+}
+
+// Add default export
+export default AppSidebar; 

@@ -154,4 +154,7 @@ function SortableHeader({ label, field, currentSort, direction, onSort, classNam
       </div>
     </th>
   )
-} 
+}
+
+// Add default export
+export default DataTable; 
