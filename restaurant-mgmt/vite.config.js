@@ -11,8 +11,12 @@ export default defineConfig({
     },
   },
   server: {
-    port: 4000,
-    open: true
+    port: parseInt(process.env.PORT || '3000'),
+    host: '0.0.0.0'
+  },
+  preview: {
+    port: parseInt(process.env.PORT || '3000'),
+    host: '0.0.0.0'
   },
   plugins: [
     react(),
