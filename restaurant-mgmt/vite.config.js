@@ -5,6 +5,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -62,4 +63,9 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    sourcemap: true,
+    outDir: 'dist',
+    assetsDir: 'assets'
+  }
 })
