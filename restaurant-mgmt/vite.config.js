@@ -12,11 +12,13 @@ export default defineConfig({
   },
   server: {
     port: parseInt(process.env.PORT || '3000'),
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    allowedHosts: ['b-restaurantmanagementsystem.onrender.com']
   },
   preview: {
     port: parseInt(process.env.PORT || '3000'),
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    allowedHosts: ['b-restaurantmanagementsystem.onrender.com']
   },
   plugins: [
     react(),
