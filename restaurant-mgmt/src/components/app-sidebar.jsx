@@ -1,6 +1,6 @@
 import { useSidebar } from "@/components/ui/sidebar"
 
-export function AppSidebar({ variant = "default", activeSection = "dashboard", onNavigate }) {
+export function AppSidebar({ variant = "default", activeSection = "home", onNavigate }) {
   const { isOpen, setIsOpen } = useSidebar()
   
   const handleNavigate = (section) => {
@@ -15,17 +15,23 @@ export function AppSidebar({ variant = "default", activeSection = "dashboard", o
   return (
     <aside 
       className={`
-        ${variant === "inset" ? "border-r border-gray-200 dark:border-gray-700" : ""} 
-        h-full w-64 flex-shrink-0 bg-white dark:bg-gray-800 z-20
+        ${variant === "inset" ? "border-r border-gray-200" : ""} 
+        h-full w-64 flex-shrink-0 bg-white z-20
         fixed md:relative inset-y-0 left-0 
         transform ${isOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"} 
         transition-transform duration-200 ease-in-out
       `}
     >
-      <div className="flex h-16 items-center border-b border-gray-200 dark:border-gray-700 px-4">
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Restaurant Manager</h2>
+      <div className="flex h-16 items-center border-b border-gray-200 px-4">
+        <h2 className="text-lg font-semibold text-gray-800">Restaurant Manager</h2>
       </div>
       <nav className="flex flex-col gap-1 p-2">
+        <NavItem 
+          label="Home" 
+          active={activeSection === "home"} 
+          onClick={() => handleNavigate("home")}
+          icon={<HomeIcon />}
+        />
         <NavItem 
           label="Dashboard" 
           active={activeSection === "dashboard"} 
@@ -56,6 +62,12 @@ export function AppSidebar({ variant = "default", activeSection = "dashboard", o
           onClick={() => handleNavigate("settings")}
           icon={<SettingsIcon />}
         />
+        <NavItem 
+          label="About Us" 
+          active={activeSection === "about"} 
+          onClick={() => handleNavigate("about")}
+          icon={<AboutIcon />}
+        />
       </nav>
     </aside>
   )
@@ -67,15 +79,22 @@ function NavItem({ label, active = false, onClick, icon }) {
       onClick={onClick}
       className={`
         flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm 
-        transition-colors hover:bg-gray-100 dark:hover:bg-gray-700
-        ${active 
-          ? "bg-primary/10 text-primary font-medium dark:bg-primary/20" 
-          : "text-gray-600 dark:text-gray-300"}
+        transition-colors hover:bg-gray-100
+        ${active ? "bg-primary/10 text-primary font-medium" : "text-gray-600"}
       `}
     >
       <span className="flex h-5 w-5 items-center">{icon}</span>
       <span>{label}</span>
     </button>
+  )
+}
+
+function HomeIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </svg>
   )
 }
 
@@ -129,6 +148,16 @@ function SettingsIcon() {
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
       <circle cx="12" cy="12" r="3"></circle>
+    </svg>
+  )
+}
+
+function AboutIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 16v-4"></path>
+      <path d="M12 8h.01"></path>
     </svg>
   )
 } 

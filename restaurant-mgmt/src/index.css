@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .animate-in {
-    animation-name: fade-in, slide-in-from-top-5;
-    animation-duration: 0.2s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-  }
-  
-  .fade-in {
-    animation-name: fade-in;
-  }
-  
-  .slide-in-from-top-5 {
-    animation-name: slide-in-from-top-5;
-  }
-}
-
 @layer base {
   :root {
     font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -30,8 +13,6 @@
     -moz-osx-font-smoothing: grayscale;
     --scrollbar-track: #f1f1f1;
     --scrollbar-thumb: #c1c1c1;
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
   }
 
   html, body, #root {
@@ -58,11 +39,6 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-400;
   }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-  }
 }
 
 @layer components {
@@ -87,15 +63,4 @@
   .container-app {
     @apply mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8;
   }
-}
-
-/* Add smooth transitions when switching between light/dark modes */
-:root {
-  --transition-duration: 0.3s;
-}
-
-* {
-  transition: background-color var(--transition-duration) ease,
-              border-color var(--transition-duration) ease,
-              color var(--transition-duration) ease;
 }
